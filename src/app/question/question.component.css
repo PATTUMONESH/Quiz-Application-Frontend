@@ -1,0 +1,39 @@
+mat-icon{
+  display: flex;
+justify-content: center;
+
+}
+
+.card{
+  max-width:800px;
+  margin:0 auto;
+  padding: 5px;
+
+}
+
+li{
+  list-style-type: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+/* li .card:hover{
+  border: 1px solid blue;
+
+} */
+
+ol{
+  padding: 0;
+}
+.cardpadding{
+  padding: 5px;
+}
+.cursor-true{
+  cursor: pointer;
+}
+.cursor-false{
+  cursor: not-allowed;
+}
+.timeover{
+  color:red;
+}
