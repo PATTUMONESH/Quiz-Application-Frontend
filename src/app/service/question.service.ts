@@ -44,7 +44,7 @@ return this.httpClient.post("http://localhost:8080/Login",dataFromLoginForm,opti
 
 
 
-submitUserScore(scoreData:any){
+submitUserScore(scoreData:any,rightanswers:any,wrong:any,unattempted:any,totalQues:any){
 
 const userId=localStorage.getItem('userIdFromBackEnd');
 
@@ -58,25 +58,21 @@ console.log(userId);
 
 const body={
 "score":scoreData,
+"correct":rightanswers,
+"inCorrect":wrong,
+"notVisited":unattempted,
+"total":totalQues
 
 
-    // "firstName":userFirstName,
+  // "firstName":userFirstName,
     // "lastName":userLastName
 }
-
-  console.log(scoreData);
-
-
-  const headers = new HttpHeaders({
+console.log(scoreData);
+const headers = new HttpHeaders({
     'Content-Type':'application/json'
   })
-
-
-  const options3={headers:headers}
+const options3={headers:headers}
   return this.httpClient.post(`http://localhost:8080/userscore/${userId}`,body,options3);
-
-
-
 }
 
 

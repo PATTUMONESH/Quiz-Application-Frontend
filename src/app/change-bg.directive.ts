@@ -10,16 +10,16 @@ export class ChangeBgDirective {
     @HostListener('click') answer(){
  if(this.isCorrect){
 
-  this.render.setStyle(this.ef.nativeElement,'background','green');
-  this.render.setStyle(this.ef.nativeElement,'color','#fff');
-  this.render.setStyle(this.ef.nativeElement,'border','2px solid grey');
+  // this.render.setStyle(this.ef.nativeElement,'background','blue');
+  // this.render.setStyle(this.ef.nativeElement,'color','#fff');
+  this.render.setStyle(this.ef.nativeElement,'border','2px solid blue');
 
 
  }
  else{
-  this.render.setStyle(this.ef.nativeElement,'background','red');
-   this.render.setStyle(this.ef.nativeElement,'color','#fff');
-   this.render.setStyle(this.ef.nativeElement,'border','2px solid grey');
+  // this.render.setStyle(this.ef.nativeElement,'background','blue');
+  //  this.render.setStyle(this.ef.nativeElement,'color','#fff');
+   this.render.setStyle(this.ef.nativeElement,'border','2px solid blue ');
 
 
  }

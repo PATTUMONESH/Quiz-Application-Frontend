@@ -37,3 +37,8 @@ ol{
 .timeover{
   color:red;
 }
+.imageSpace{
+  display: flex;
+  justify-content: space-between;
+
+}

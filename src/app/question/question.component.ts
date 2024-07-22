@@ -3,6 +3,7 @@ import { interval } from 'rxjs';
 import { QuestionService } from '../service/question.service';
 import { data } from '../../assets/questions';
 import { data2 } from '../../assets/questions2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -10,6 +11,16 @@ import { data2 } from '../../assets/questions2';
   styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent implements OnInit {
+onLogout() {
+
+
+
+ localStorage.clear();
+
+this.route.navigate(['/login']);
+
+
+}
   public userName: string = '';
   public questionList: any = [];
   public currentQuestion: number = 0;
@@ -23,7 +34,8 @@ export class QuestionComponent implements OnInit {
   isQuizCompleted: boolean = false;
   isOptionSelected: boolean = false;
 
-  constructor(private questionService: QuestionService) {}
+
+  constructor(private questionService: QuestionService,private route:Router) {}
 
   ngOnInit(): void {
     const listArr = [data.questions, data2.questions];
@@ -100,6 +112,7 @@ export class QuestionComponent implements OnInit {
       if (this.currentQuestion == 8) {
         setTimeout(() => {
           this.interval$.unsubscribe();
+          // this.onSubmitQuiz();
         }, 60000);
       }
       if (this.counter === 0 && this.currentQuestion != 8) {
@@ -134,8 +147,7 @@ export class QuestionComponent implements OnInit {
   // }
   getProgressPercent() {
     this.progress = (
-      (this.currentQuestion / this.questionList.length) *
-      100
+      (this.currentQuestion / this.questionList.length) * 100
     ).toString();
     return this.progress;
   }
@@ -144,7 +156,7 @@ export class QuestionComponent implements OnInit {
     this.unAttemptedQuestion =
       this.questionList.length - (this.correctAnswer + this.inCorrectAnswer);
 
-    this.questionService.submitUserScore(this.points).subscribe({
+    this.questionService.submitUserScore(this.points,this.correctAnswer,this.inCorrectAnswer,this.unAttemptedQuestion,this.questionList.length).subscribe({
       next: (res: any) => {
         console.log(res);
       },

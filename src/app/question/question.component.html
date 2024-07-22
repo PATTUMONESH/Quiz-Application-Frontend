@@ -3,19 +3,19 @@
   <div class="card">
       <div class="d-flex justify-content-between p-3">
           <div class="image">
-              <img src="https://img.icons8.com/color/96/000000/angularjs.png" width="90" alt="logo">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJM20yH-agJqq06pyg1jc1OZJ8KAAQtklhCA&s" width="90" alt="logo">
           </div>
-          <div class="quiz-header">
-              <h4 style="font-family: cursive;">Angular & TypeScript Quiz!</h4>
-              <span style="font-style: italic;">Welcome {{userName}}</span>
+          <div class="quiz-header d-flex align-items-center" style="margin-bottom: 0px;">
+              <h4 style="font-family: cursive" >Angular & TypeScript Quiz!</h4>
+              <!-- <span style="font-style: italic;">Welcome {{userName}}</span> -->
           </div>
       </div>
       @if(!isQuizCompleted){
-      <ng-container>
+      <div class="container">
           <div class="d-flex justify-content-around py-3">
-              <div class="score">
+              <!-- <div class="score">
                   <h5>{{points}} Points</h5>
-              </div>
+              </div> -->
               <div class="question-remain">
                   <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
               </div>
@@ -63,16 +63,44 @@
               <button mat-button  [disabled]="currentQuestion===8" class="btn" (click)="nextQuestion()"> Next</button>
               <button mat-button  [disabled]="currentQuestion!==8" class="btn" (click)="onSubmitQuiz()" > Submit</button>
           </div>
-      </ng-container>
+      </div>
     }
 
     @if(isQuizCompleted){
 
-      <ng-container>
-          <div class="row d-flex justify-content-between">
-              <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
+      <!-- <ng-container >
+          <div class="row d-flex justify-content-between imageSpace">
+              <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="image not found" class="imageSpace">
               <div class="result text-center col-md-6 col-sm-12">
+
+
+
                   <h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Total Question</th>
+                        <th scope="col">Correct Answered</th>
+                        <th scope="col">Total Wrong Answered</th>
+                        <th scope="col">Total Unattempted Question</th>
+                        <th scope="col">Your Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">{{questionList.length}}</td>
+                        <td scope="row">{{correctAnswer}}</td>
+                        <th scope="row">{{inCorrectAnswer}}</th>
+                        <th scope="row">{{unAttemptedQuestion}}</th>
+                        <th scope="row">{{points}}</th>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+
                   <h3>Total Question: {{questionList.length}} </h3>
                   <h3>Total Correct Answered : {{correctAnswer}} </h3>
                   <h3>Total Wrong Answered : {{inCorrectAnswer}} </h3>
@@ -80,8 +108,113 @@
                   <h3>Your Score : {{points}} Points </h3>
               </div>
           </div>
-      </ng-container>
+      </ng-container> -->
+
+      <div class="container d-flex flex-column gap-3">
+
+
+
+        <div class="row imageSpace justify-content-center ">
+
+
+
+           @if(points>59){
+          <div class="col-sm-4 ">
+            <img src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="image not found" style="width: 120px;height:120px">
+          </div>
+            <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+            </div>
+          }
+          @else {
+            <div class="col-sm-4 ">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qgKGEXVcPAG4d45NF0K_2b9uS9VWaKFU5w&s" alt="image not found" style="width: 120px;height:120px">
+            </div>
+              <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+              </div>
+
+          }
+       </div>
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table table-bordered  table-striped ">
+            <thead>
+              <tr>
+                <th scope="col">Total Question</th>
+                <th scope="col">Correct Answered</th>
+                <th scope="col">Total Wrong Answered</th>
+                <th scope="col">Total Unattempted Question</th>
+                <th scope="col">Your Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">{{questionList.length}}</td>
+                <td scope="row">{{correctAnswer}}</td>
+                <td scope="row">{{inCorrectAnswer}}</td>
+                <td scope="row">{{unAttemptedQuestion}}</td>
+                <td scope="row">{{points}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+
+          <div class="row d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" (click)="onLogout()">Please Click here to Exit Exam</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+        <!-- <div class="row imageSpace">
+          <div class="col-sm-5"><h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3></div>
+          <div class="col-sm-8">
+            <table class="table table table-bordered  table-striped ">
+              <thead>
+                <tr>
+                  <th scope="col">Total Question</th>
+                  <th scope="col">Correct Answered</th>
+                  <th scope="col">Total Wrong Answered</th>
+                  <th scope="col">Total Unattempted Question</th>
+                  <th scope="col">Your Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">{{questionList.length}}</td>
+                  <td scope="row">{{correctAnswer}}</td>
+                  <th scope="row">{{inCorrectAnswer}}</th>
+                  <th scope="row">{{unAttemptedQuestion}}</th>
+                  <th scope="row">{{points}}</th>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+      </div>
+
+
+
     }
 
   </div>
 </div>
+
+
+
+
