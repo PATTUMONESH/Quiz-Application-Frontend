@@ -29,6 +29,7 @@ this.route.navigate(['/login']);
   correctAnswer: number = 0;
   inCorrectAnswer: number = 0;
   unAttemptedQuestion: number = 0;
+  AttemptedQuestions:number=0;
   interval$: any;
   progress: string = '0';
   isQuizCompleted: boolean = false;
@@ -155,6 +156,7 @@ this.route.navigate(['/login']);
   onSubmitQuiz() {
     this.unAttemptedQuestion =
       this.questionList.length - (this.correctAnswer + this.inCorrectAnswer);
+      this.AttemptedQuestions=this.questionList.length-this.unAttemptedQuestion;
 
     this.questionService.submitUserScore(this.points,this.correctAnswer,this.inCorrectAnswer,this.unAttemptedQuestion,this.questionList.length).subscribe({
       next: (res: any) => {

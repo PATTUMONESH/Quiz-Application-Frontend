@@ -11,13 +11,11 @@
           </div>
       </div>
       @if(!isQuizCompleted){
-<<<<<<< HEAD
+
       <div class="container">
-=======
 
 
-      <ng-container>
->>>>>>> 6bf00cc1e9150452db5f5860bc35dbd617ef6836
+
           <div class="d-flex justify-content-around py-3">
               <!-- <div class="score">
                   <h5>{{points}} Points</h5>
@@ -120,25 +118,31 @@
 
 
 
-        <div class="row imageSpace justify-content-center ">
+        <div class="row imageSpace">
+
+          <div style="margin-bottom: 0px"><h3><b>Congratulations</b><br>You have completed the quiz.</h3>
+          </div>
+          <p class="blink">Please check your register mail for Results</p>
 
 
 
-           @if(points>59){
+           <!-- @if(points>59){
           <div class="col-sm-4 ">
             <img src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="image not found" style="width: 120px;height:120px">
           </div>
-            <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+            <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3><b>Congratulations</b><br>You have completed the quiz.</h3>
             </div>
           }
           @else {
             <div class="col-sm-4 ">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qgKGEXVcPAG4d45NF0K_2b9uS9VWaKFU5w&s" alt="image not found" style="width: 120px;height:120px">
             </div>
-              <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+              <div class="col-sm-4 d-flex align-items-center" style="margin-bottom: 0px"><h3> <b>Congratulations</b> <br>You have completed the quiz.</h3>
               </div>
 
-          }
+          } -->
+
+
        </div>
 
 
@@ -152,19 +156,21 @@
             <thead>
               <tr>
                 <th scope="col">Total Question</th>
-                <th scope="col">Correct Answered</th>
-                <th scope="col">Total Wrong Answered</th>
+                <th scope="col">Total AttemptedQuestions</th>
+                <!-- <th scope="col">Correct Answered</th> -->
+                <!-- <th scope="col">Total Wrong Answered</th> -->
                 <th scope="col">Total Unattempted Question</th>
-                <th scope="col">Your Score</th>
+                <!-- <th scope="col">Your Score</th> -->
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td scope="row">{{questionList.length}}</td>
-                <td scope="row">{{correctAnswer}}</td>
-                <td scope="row">{{inCorrectAnswer}}</td>
+                <td scope="row">{{AttemptedQuestions}}</td>
+                <!-- <td scope="row">{{correctAnswer}}</td>
+                <td scope="row">{{inCorrectAnswer}}</td> -->
                 <td scope="row">{{unAttemptedQuestion}}</td>
-                <td scope="row">{{points}}</td>
+                <!-- <td scope="row">{{points}}</td> -->
 
               </tr>
 
