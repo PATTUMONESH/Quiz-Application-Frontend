@@ -47,8 +47,6 @@ return this.httpClient.post("http://localhost:8080/Login",dataFromLoginForm,opti
 submitUserScore(scoreData:any,rightanswers:any,wrong:any,unattempted:any,totalQues:any){
 
 const userId=localStorage.getItem('userIdFromBackEnd');
-
-
 // const userFirstName=localStorage.getItem('userfNameFromBackend');
 // const userLastName=localStorage.getItem('userlNameFromBackend');
 
